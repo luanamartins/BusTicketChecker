@@ -1,9 +1,10 @@
-package checker.ticker.bus.busticketchecker.src;
+package checker.ticker.bus.busticketchecker.fragments;
 
 
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Context;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,6 +32,8 @@ import checker.ticker.bus.busticketchecker.R;
  */
 public class NavigationDrawerFragment extends Fragment {
 
+
+    private Context context;
     /**
      * Remember the position of the selected item.
      */
@@ -81,10 +84,16 @@ public class NavigationDrawerFragment extends Fragment {
         selectItem(mCurrentSelectedPosition);
     }
 
+    public void setContext(Context context)
+    {
+        this.context = context;
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // Indicate that this fragment would like to influence the set of actions in the action bar.
+
         setHasOptionsMenu(true);
     }
 
@@ -104,9 +113,8 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
                 new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
+                        getString(R.string.title_card),
+                        getString(R.string.title_tax)
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
