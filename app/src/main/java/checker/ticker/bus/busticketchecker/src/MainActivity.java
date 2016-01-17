@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                startActivity(new Intent(MainActivity.this, CheckerActivity.class));
+                startActivity(new Intent(MainActivity.this, MainDrawerActivity.class));
             }
         });
     }
