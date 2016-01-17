@@ -1,18 +1,23 @@
-package checker.ticker.bus.busticketchecker;
+package checker.ticker.bus.busticketchecker.src;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import checker.ticker.bus.busticketchecker.R;
 
 
 public class MainActivity extends Activity {
+    // http://developer.android.com/trainisng/implementing-navigation/lateral.html
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,24 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        final ListView list = (ListView) findViewById(R.id.listView);
+        String[] values = new String[]{
+                "Cartão 1",
+                "Cartão 2",
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                android.R.id.text1, values);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                startActivity(new Intent(MainActivity.this, CheckerActivity.class));
+            }
+        });
     }
 
 
