@@ -18,11 +18,18 @@
         </activity>
         <activity
             android:name=".src.CheckerActivity"
-            android:label="@string/title_activity_checker"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+            android:label="@string/title_activity_checker" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".src.MainDrawerActivity"
+            android:label="@string/title_activity_main_drawer"></activity>
     </application>
 
 </manifest>
