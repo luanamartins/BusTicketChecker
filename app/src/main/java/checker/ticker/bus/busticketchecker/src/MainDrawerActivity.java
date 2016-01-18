@@ -106,7 +106,7 @@ public class MainDrawerActivity extends Activity
             View rootView = inflater.inflate(R.layout.fragment_main_drawer, container, false);
 
             final ListView list = (ListView) rootView.findViewById(R.id.listView2);
-            String[] values = new String[]{
+            final String[] values = new String[]{
                     "Cartão 1",
                     "Cartão 2",
             };
@@ -120,7 +120,9 @@ public class MainDrawerActivity extends Activity
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
-                    startActivity(new Intent(context, CheckerActivity.class));
+                    Intent intent = new Intent(context, CheckerActivity.class);
+                    intent.putExtra("cardName", values[position]);
+                    startActivity(intent);
                 }
             });
             return rootView;
