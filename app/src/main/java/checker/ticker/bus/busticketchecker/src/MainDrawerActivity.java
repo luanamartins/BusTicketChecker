@@ -1,21 +1,15 @@
 package checker.ticker.bus.busticketchecker.src;
 
 import android.app.Activity;
-
 import android.app.ActionBar;
-import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
+import checker.ticker.bus.busticketchecker.fragments.CardInserterFragment;
+import checker.ticker.bus.busticketchecker.fragments.PlaceholderFragment;
 import checker.ticker.bus.busticketchecker.R;
 import checker.ticker.bus.busticketchecker.fragments.NavigationDrawerFragment;
 
@@ -43,18 +37,26 @@ public class MainDrawerActivity extends Activity
         mTitle = getTitle();
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        PlaceholderFragment fragment = new PlaceholderFragment();
+        CardInserterFragment fragment2 = new CardInserterFragment();
+
+        if(position == 0){
+            fragmentTransaction.replace(R.id.container, fragment2);
+        }else if(position == 2){
+            fragmentTransaction.replace(R.id.container, fragment2);
+        }else{
+            startActivity(new Intent(this, CheckerActivity.class));
+        }
+        fragmentTransaction.commit();
     }
 
     public void onSectionAttached(int number) {
@@ -65,6 +67,9 @@ public class MainDrawerActivity extends Activity
             case 2:
                 mTitle = getString(R.string.title_tax);
                 break;
+            case 3:
+                mTitle = getString(R.string.title_travel);
+                break;
         }
     }
 
@@ -73,67 +78,6 @@ public class MainDrawerActivity extends Activity
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main_drawer, container, false);
-
-            final ListView list = (ListView) rootView.findViewById(R.id.listView2);
-            final String[] values = new String[]{
-                    "Cartão 1",
-                    "Cartão 2",
-            };
-
-            final Context context = getActivity().getBaseContext();
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1,
-                    android.R.id.text1, values);
-            list.setAdapter(adapter);
-
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-                    Intent intent = new Intent(context, CheckerActivity.class);
-                    intent.putExtra("cardName", values[position]);
-                    startActivity(intent);
-                }
-            });
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainDrawerActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
     }
 
 }
