@@ -5,11 +5,16 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import checker.ticker.bus.busticketchecker.R;
 import checker.ticker.bus.busticketchecker.fragments.NavigationDrawerFragment;
@@ -99,6 +104,25 @@ public class MainDrawerActivity extends Activity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main_drawer, container, false);
+
+            final ListView list = (ListView) rootView.findViewById(R.id.listView2);
+            String[] values = new String[]{
+                    "Cartão 1",
+                    "Cartão 2",
+            };
+
+            final Context context = getActivity().getBaseContext();
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1,
+                    android.R.id.text1, values);
+            list.setAdapter(adapter);
+
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    startActivity(new Intent(context, CheckerActivity.class));
+                }
+            });
             return rootView;
         }
 
