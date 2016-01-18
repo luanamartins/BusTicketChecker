@@ -22,6 +22,7 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
 
     private Spinner spinnerBusTaxes;
     private Button newTimeButton;
+    private Button checkoutButton;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -55,6 +56,13 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
             }
         });
 
+        checkoutButton = (Button) findViewById(R.id.checkoutButton);
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
