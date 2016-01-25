@@ -63,6 +63,9 @@ public class MainDrawerActivity extends Activity
         CardInserterFragment cardInserterFragment = new CardInserterFragment();
 
         switch (position){
+            case MenuConstants.SHOW_CARDS:
+                fragmentTransaction.replace(R.id.container, placeholderFragment);
+                break;
             case MenuConstants.ADD_BUS_CARD:
                 fragmentTransaction.replace(R.id.container, cardInserterFragment);
                 break;
