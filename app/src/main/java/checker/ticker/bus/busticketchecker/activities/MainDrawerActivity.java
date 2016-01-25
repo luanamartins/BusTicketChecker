@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.src;
+package checker.ticker.bus.busticketchecker.activities;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -7,11 +7,16 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.widget.ImageButton;
 
+import checker.ticker.bus.busticketchecker.constants.MenuConstants;
 import checker.ticker.bus.busticketchecker.fragments.CardInserterFragment;
 import checker.ticker.bus.busticketchecker.fragments.PlaceholderFragment;
 import checker.ticker.bus.busticketchecker.R;
 import checker.ticker.bus.busticketchecker.fragments.NavigationDrawerFragment;
+
+// https://guides.codepath.com/android/Fragment-Navigation-Drawer
 
 public class MainDrawerActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -20,6 +25,7 @@ public class MainDrawerActivity extends Activity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    private ImageButton addBusTravelButton;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -34,11 +40,18 @@ public class MainDrawerActivity extends Activity
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setContext(this);
+
         mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
+        addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
+        addBusTravelButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                startActivity(new Intent(MainDrawerActivity.this, CheckerActivity.class));
+            }
+        });
     }
 
     @Override
@@ -46,29 +59,39 @@ public class MainDrawerActivity extends Activity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        PlaceholderFragment fragment = new PlaceholderFragment();
-        CardInserterFragment fragment2 = new CardInserterFragment();
+        PlaceholderFragment placeholderFragment = new PlaceholderFragment();
+        CardInserterFragment cardInserterFragment = new CardInserterFragment();
 
-        if(position == 0){
-            fragmentTransaction.replace(R.id.container, fragment2);
-        }else if(position == 2){
-            fragmentTransaction.replace(R.id.container, fragment2);
-        }else{
-            startActivity(new Intent(this, CheckerActivity.class));
+        switch (position){
+            case MenuConstants.ADD_BUS_CARD:
+                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                break;
+            case MenuConstants.ADD_BUS_TAX:
+                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                break;
+            case MenuConstants.REMOVE_BUS_CARD:
+                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                break;
+            case MenuConstants.REMOVE_BUS_TAX:
+                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                break;
         }
         fragmentTransaction.commit();
     }
 
     public void onSectionAttached(int number) {
         switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_card);
+            case MenuConstants.ADD_BUS_CARD:
+                mTitle = getString(R.string.title_add_card);
                 break;
-            case 2:
-                mTitle = getString(R.string.title_tax);
+            case MenuConstants.ADD_BUS_TAX:
+                mTitle = getString(R.string.title_add_tax);
                 break;
-            case 3:
-                mTitle = getString(R.string.title_travel);
+            case MenuConstants.REMOVE_BUS_CARD:
+                mTitle = getString(R.string.title_remove_card);
+                break;
+            case MenuConstants.REMOVE_BUS_TAX:
+                mTitle = getString(R.string.title_remove_tax);
                 break;
         }
     }

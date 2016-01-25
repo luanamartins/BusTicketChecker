@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.src;
+package checker.ticker.bus.busticketchecker.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

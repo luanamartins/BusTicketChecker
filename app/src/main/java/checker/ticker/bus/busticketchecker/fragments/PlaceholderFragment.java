@@ -14,8 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import checker.ticker.bus.busticketchecker.R;
-import checker.ticker.bus.busticketchecker.src.CheckerActivity;
-import checker.ticker.bus.busticketchecker.src.MainDrawerActivity;
+import checker.ticker.bus.busticketchecker.activities.CheckerActivity;
 
 /**
  * A placeholder fragment containing a simple view.
