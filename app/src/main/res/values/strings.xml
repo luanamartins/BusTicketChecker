@@ -11,9 +11,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main_drawer">MainDrawerActivity</string>
 
-    <string name="title_card">Adicionar cartão</string>
-    <string name="title_tax">Adicionar tarifa</string>
-    <string name="title_travel">Adicionar viagem</string>
+    <string name="title_add_card">Adicionar cartão</string>
+    <string name="title_add_tax">Adicionar tarifa</string>
+    <string name="title_remove_card">Remover cartão</string>
+    <string name="title_remove_tax">Remover tarifa</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
