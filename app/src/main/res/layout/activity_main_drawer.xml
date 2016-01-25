@@ -17,9 +17,11 @@
         <ImageButton
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:id="@+id/imageButton"
+            android:id="@+id/addBusTravelButton"
             android:background="@mipmap/plus_circular_button"
-            android:layout_gravity="right|bottom" />
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
     </FrameLayout>
 
     <!-- The drawer is given a fixed width in dp and extends the full height of
