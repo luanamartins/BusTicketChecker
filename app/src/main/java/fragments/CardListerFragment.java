@@ -72,7 +72,7 @@ public class CardListerFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-//        ((MainDrawerActivity) activity).onSectionAttached(
+//        ((ApplicationActivity) activity).onSectionAttached(
 //                getArguments().getInt(ARG_SECTION_NUMBER));
     }
 }

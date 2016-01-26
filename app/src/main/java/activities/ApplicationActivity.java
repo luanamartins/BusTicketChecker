@@ -20,7 +20,7 @@ import fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
 
-public class MainDrawerActivity extends Activity
+public class ApplicationActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -51,7 +51,7 @@ public class MainDrawerActivity extends Activity
         addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
         addBusTravelButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                startActivity(new Intent(MainDrawerActivity.this, CheckerActivity.class));
+                startActivity(new Intent(ApplicationActivity.this, CheckerActivity.class));
             }
         });
     }
