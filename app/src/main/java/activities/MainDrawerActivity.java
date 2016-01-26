@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.activities;
+package activities;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -10,11 +10,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageButton;
 
-import checker.ticker.bus.busticketchecker.constants.MenuConstants;
-import checker.ticker.bus.busticketchecker.fragments.CardInserterFragment;
-import checker.ticker.bus.busticketchecker.fragments.PlaceholderFragment;
-import checker.ticker.bus.busticketchecker.R;
-import checker.ticker.bus.busticketchecker.fragments.NavigationDrawerFragment;
+import checker.ticker.bus.basic.constants.MenuConstants;
+import checker.ticker.bus.basic.fragments.CardInserterFragment;
+import checker.ticker.bus.basic.fragments.PlaceholderFragment;
+import checker.ticker.bus.basic.R;
+import checker.ticker.bus.basic.fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
 

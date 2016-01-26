@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.fragments;
+package fragments;
 
 
 import android.os.Bundle;
@@ -7,15 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import checker.ticker.bus.busticketchecker.R;
+import checker.ticker.bus.basic.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CardInserterFragment extends Fragment {
+public class BusTaxAdderFragment extends Fragment {
 
 
-    public CardInserterFragment() {
+    public BusTaxAdderFragment() {
         // Required empty public constructor
     }
 

@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.fragments;
+package fragments;
 
 
 import android.app.Activity;
@@ -23,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import checker.ticker.bus.busticketchecker.R;
+import checker.ticker.bus.basic.R;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.

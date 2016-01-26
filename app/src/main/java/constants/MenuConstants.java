@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.constants;
+package constants;
 
 public class MenuConstants {
     public static final int SHOW_CARDS = 0;
