@@ -2,6 +2,7 @@ package activities;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -10,11 +11,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageButton;
 
-import checker.ticker.bus.basic.constants.MenuConstants;
-import checker.ticker.bus.basic.fragments.CardInserterFragment;
-import checker.ticker.bus.basic.fragments.PlaceholderFragment;
+import constants.MenuConstants;
+import fragments.BusTaxAdderFragment;
+import fragments.CardAdderFragment;
+import fragments.CardListerFragment;
 import checker.ticker.bus.basic.R;
-import checker.ticker.bus.basic.fragments.NavigationDrawerFragment;
+import fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
 
@@ -59,26 +61,26 @@ public class MainDrawerActivity extends Activity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        PlaceholderFragment placeholderFragment = new PlaceholderFragment();
-        CardInserterFragment cardInserterFragment = new CardInserterFragment();
+        Fragment fragment = new CardListerFragment();
 
         switch (position){
             case MenuConstants.SHOW_CARDS:
-                fragmentTransaction.replace(R.id.container, placeholderFragment);
+                fragment = new CardListerFragment();
                 break;
             case MenuConstants.ADD_BUS_CARD:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new CardAdderFragment();
                 break;
             case MenuConstants.ADD_BUS_TAX:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new BusTaxAdderFragment();
                 break;
             case MenuConstants.REMOVE_BUS_CARD:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new CardAdderFragment();
                 break;
             case MenuConstants.REMOVE_BUS_TAX:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new CardAdderFragment();
                 break;
         }
+        fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
     }
 
