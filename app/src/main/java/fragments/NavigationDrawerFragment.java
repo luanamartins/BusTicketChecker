@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.fragments;
+package fragments;
 
 
 import android.app.Activity;
@@ -23,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import checker.ticker.bus.busticketchecker.R;
+import checker.ticker.bus.basic.R;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -108,17 +108,13 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+        String[] itemsForNavigationDrawer = getResources().getStringArray(R.array.nav_drawer_items);
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_show_card),
-                        getString(R.string.title_add_card),
-                        getString(R.string.title_add_tax),
-                        getString(R.string.title_remove_card),
-                        getString(R.string.title_remove_tax)
-                }));
+                itemsForNavigationDrawer
+        ));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }

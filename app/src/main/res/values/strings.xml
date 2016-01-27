@@ -17,6 +17,14 @@
     <string name="title_remove_card">Remover cartão</string>
     <string name="title_remove_tax">Remover tarifa</string>
 
+    <string-array name="nav_drawer_items">
+        <item >Mostrar cartões</item>
+        <item >Adicionar cartão</item>
+        <item >Adicionar tarifa</item>
+        <item >Remover cartão</item>
+        <item >Remover tarifa</item>
+    </string-array>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

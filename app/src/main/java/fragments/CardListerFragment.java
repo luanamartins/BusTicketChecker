@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.fragments;
+package fragments;
 
 
 import android.app.Activity;
@@ -13,28 +13,28 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import checker.ticker.bus.busticketchecker.R;
-import checker.ticker.bus.busticketchecker.activities.CheckerActivity;
+import checker.ticker.bus.basic.R;
+import activities.CheckerActivity;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class CardListerFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    public PlaceholderFragment() {
+    public CardListerFragment() {
     }
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static PlaceholderFragment newInstance(int sectionNumber) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static CardListerFragment newInstance(int sectionNumber) {
+        CardListerFragment fragment = new CardListerFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
@@ -72,7 +72,7 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-//        ((MainDrawerActivity) activity).onSectionAttached(
+//        ((ApplicationActivity) activity).onSectionAttached(
 //                getArguments().getInt(ARG_SECTION_NUMBER));
     }
 }

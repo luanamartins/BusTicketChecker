@@ -1,7 +1,8 @@
-package checker.ticker.bus.busticketchecker.activities;
+package activities;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -10,15 +11,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageButton;
 
-import checker.ticker.bus.busticketchecker.constants.MenuConstants;
-import checker.ticker.bus.busticketchecker.fragments.CardInserterFragment;
-import checker.ticker.bus.busticketchecker.fragments.PlaceholderFragment;
-import checker.ticker.bus.busticketchecker.R;
-import checker.ticker.bus.busticketchecker.fragments.NavigationDrawerFragment;
+import constants.MenuConstants;
+import fragments.BusTaxAdderFragment;
+import fragments.CardAdderFragment;
+import fragments.CardListerFragment;
+import checker.ticker.bus.basic.R;
+import fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
 
-public class MainDrawerActivity extends Activity
+public class ApplicationActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -49,7 +51,7 @@ public class MainDrawerActivity extends Activity
         addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
         addBusTravelButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                startActivity(new Intent(MainDrawerActivity.this, CheckerActivity.class));
+                startActivity(new Intent(ApplicationActivity.this, CheckerActivity.class));
             }
         });
     }
@@ -59,26 +61,26 @@ public class MainDrawerActivity extends Activity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        PlaceholderFragment placeholderFragment = new PlaceholderFragment();
-        CardInserterFragment cardInserterFragment = new CardInserterFragment();
+        Fragment fragment = new CardListerFragment();
 
         switch (position){
             case MenuConstants.SHOW_CARDS:
-                fragmentTransaction.replace(R.id.container, placeholderFragment);
+                fragment = new CardListerFragment();
                 break;
             case MenuConstants.ADD_BUS_CARD:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new CardAdderFragment();
                 break;
             case MenuConstants.ADD_BUS_TAX:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new BusTaxAdderFragment();
                 break;
             case MenuConstants.REMOVE_BUS_CARD:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new CardAdderFragment();
                 break;
             case MenuConstants.REMOVE_BUS_TAX:
-                fragmentTransaction.replace(R.id.container, cardInserterFragment);
+                fragment = new CardAdderFragment();
                 break;
         }
+        fragmentTransaction.replace(R.id.container, fragment);
         fragmentTransaction.commit();
     }
 

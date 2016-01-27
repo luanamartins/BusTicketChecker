@@ -1,4 +1,4 @@
-package checker.ticker.bus.busticketchecker.fragments;
+package fragments;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TimePicker;
 import java.util.Calendar;
-import java.util.Locale;
 
-import checker.ticker.bus.busticketchecker.R;
+import checker.ticker.bus.basic.R;
 
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
     @Override
