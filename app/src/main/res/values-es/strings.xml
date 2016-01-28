@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bus Ticket</string>
+    <string name="title_add_card">Añadir nueva tarjeta</string>
+    <string name="title_add_tax">Agregar nueva tarifa</string>
+    <string name="title_remove_card">Extracción de la tarjeta</string>
+    <string name="title_remove_tax">Extracción de la tarifa</string>
+    <string name="title_show_card">Cartillas</string>
+    <string name="time">Horario</string>
+    <string name="insert_time">Añadir horario</string>
+    <string name="checkout">Checkout</string>
+    <string name="bus_tax">Tarifa</string>
+    <string name="new_bus_tax">Nueva tarifa</string>
+    <string name="amount">Valor</string>
+    <string name="hello_blank_fragment"></string>
+    <string name="action_settings">Configuratión</string>
+</resources>

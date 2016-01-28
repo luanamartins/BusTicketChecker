@@ -2,32 +2,38 @@
 <resources>
 
     <string name="app_name">Bus Ticket</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_checker">CheckerActivity</string>
-    <string name="section_format">Hello World from section: %1$d</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main_drawer">MainDrawerActivity</string>
+    <string name="title_show_card">Show cards</string>
+    <string name="title_add_card">Add new card</string>
+    <string name="title_add_tax">Add new bus tax</string>
+    <string name="title_remove_card">Remove card</string>
+    <string name="title_remove_tax">Remove bus tax</string>
 
-    <string name="title_show_card">Mostrar cartões</string>
-    <string name="title_add_card">Adicionar cartão</string>
-    <string name="title_add_tax">Adicionar tarifa</string>
-    <string name="title_remove_card">Remover cartão</string>
-    <string name="title_remove_tax">Remover tarifa</string>
+    <string name="time">Time</string>
+    <string name="bus_tax" translatable="true">Bus tax</string>
+    <string name="insert_time">Insert time</string>
+    <string name="checkout">Checkout</string>
+    <string name="new_bus_tax">New bus tax</string>
+    <string name="amount">Amount</string>
 
     <string-array name="nav_drawer_items">
-        <item >Mostrar cartões</item>
-        <item >Adicionar cartão</item>
-        <item >Adicionar tarifa</item>
-        <item >Remover cartão</item>
-        <item >Remover tarifa</item>
+        <item>Show cards</item>
+        <item>Add new card</item>
+        <item>Add new bus tax</item>
+        <item>Remove card</item>
+        <item>Remove bus tax</item>
     </string-array>
+
+    <array name="nav_drawer_icons">
+        <item>@mipmap/item_one</item>
+        <item>@mipmap/item_one</item>
+        <item>@mipmap/item_one</item>
+        <item>@mipmap/item_one</item>
+        <item>@mipmap/item_one</item>
+    </array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_example">Example action</string>
 
 </resources>

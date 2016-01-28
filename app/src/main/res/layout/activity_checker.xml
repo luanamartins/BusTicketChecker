@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Horário"
+        android:text="@string/time"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Tarifa"
+        android:text="@string/bus_tax"
         android:id="@+id/textView2"
         android:layout_marginTop="66dp"
         android:layout_below="@+id/textView"
@@ -32,7 +32,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Inserir horário"
+        android:text="@string/insert_time"
         android:id="@+id/newTimeButton"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />
@@ -47,7 +47,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Checkout"
+        android:text="@string/checkout"
         android:id="@+id/checkoutButton"
         android:layout_below="@+id/spinner"
         android:layout_alignParentStart="true"

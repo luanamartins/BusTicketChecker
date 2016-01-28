@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Nova tarifa"
+        android:text="@string/new_bus_tax"
         android:id="@+id/textView4" />
 
     <EditText
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Valor:"
+        android:text="@string/amount"
         android:id="@+id/textView5" />
 
     <EditText
