@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 
 import checker.ticker.bus.basic.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BusTaxAdderFragment extends Fragment
 {
     public BusTaxAdderFragment()
