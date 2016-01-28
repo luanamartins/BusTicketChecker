@@ -18,14 +18,16 @@ import java.util.ArrayList;
 import checker.ticker.bus.basic.R;
 import fragments.TimePickerFragment;
 
-public class CheckerActivity extends Activity implements AdapterView.OnItemSelectedListener {
+public class CheckerActivity extends Activity implements AdapterView.OnItemSelectedListener
+{
 
     private Spinner spinnerBusTaxes;
     private Button newTimeButton;
     private Button checkoutButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checker);
 
@@ -43,18 +45,22 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
         spinnerBusTaxes.setAdapter(adapter);
 
         newTimeButton = (Button) findViewById(R.id.newTimeButton);
-        newTimeButton.setOnClickListener(new View.OnClickListener() {
+        newTimeButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 TimePickerFragment newFragment = new TimePickerFragment();
                 newFragment.show(getFragmentManager(), "TimePicker");
             }
         });
 
         checkoutButton = (Button) findViewById(R.id.checkoutButton);
-        checkoutButton.setOnClickListener(new View.OnClickListener() {
+        checkoutButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 finish();
             }
         });
@@ -62,12 +68,14 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
 
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
         String item = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
 
-    public void onNothingSelected(AdapterView<?> arg0) {
+    public void onNothingSelected(AdapterView<?> arg0)
+    {
         // TODO Auto-generated method stub
     }
 
