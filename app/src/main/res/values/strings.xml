@@ -3,6 +3,7 @@
 
     <string name="app_name">Bus Ticket</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_checker">CheckerActivity</string>
 
     <string name="title_show_card">Show cards</string>
     <string name="title_add_card">Add new card</string>
@@ -11,11 +12,13 @@
     <string name="title_remove_tax">Remove bus tax</string>
 
     <string name="time">Time</string>
-    <string name="bus_tax" translatable="true">Bus tax</string>
+    <string name="bus_tax">Bus tax</string>
     <string name="insert_time">Insert time</string>
     <string name="checkout">Checkout</string>
     <string name="new_bus_tax">New bus tax</string>
     <string name="amount">Amount</string>
+    <string name="title_statistics">Title</string>
+    <string name="empty_word"></string>
 
     <string-array name="nav_drawer_items">
         <item>Show cards</item>

@@ -12,6 +12,5 @@
     <string name="bus_tax">Tarifa</string>
     <string name="new_bus_tax">Nueva tarifa</string>
     <string name="amount">Valor</string>
-    <string name="hello_blank_fragment"></string>
     <string name="action_settings">Configuratión</string>
 </resources>
