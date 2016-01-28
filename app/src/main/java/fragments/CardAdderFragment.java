@@ -24,11 +24,11 @@ public class CardAdderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        EditText newCardNameEditText = (EditText) getActivity().findViewById(R.id.newCardNameEditText);
+        View view = inflater.inflate(R.layout.fragment_card_adder, container, false);
+        EditText newCardNameEditText = (EditText) view.findViewById(R.id.newCardNameEditText);
         String newCardName = newCardNameEditText.getText().toString();
-        
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card_adder, container, false);
+
+        return view;
     }
 
 }

@@ -1,7 +1,7 @@
 package activities;
 
-import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -11,17 +11,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.ImageButton;
 
+import checker.ticker.bus.basic.R;
 import constants.MenuConstants;
 import fragments.BusTaxAdderFragment;
 import fragments.CardAdderFragment;
 import fragments.CardListerFragment;
-import checker.ticker.bus.basic.R;
 import fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
+// https://github.com/codepath/android_guides/wiki/Fragment-Navigation-Drawer
+// http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/
 
-public class ApplicationActivity extends Activity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class ApplicationActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks
+{
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -35,12 +37,12 @@ public class ApplicationActivity extends Activity
     private CharSequence mTitle;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_drawer);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setContext(this);
 
         mTitle = getTitle();
@@ -49,21 +51,27 @@ public class ApplicationActivity extends Activity
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
         addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
-        addBusTravelButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
+        addBusTravelButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
                 startActivity(new Intent(ApplicationActivity.this, CheckerActivity.class));
             }
         });
     }
 
     @Override
-    public void onNavigationDrawerItemSelected(int position) {
+    public void onNavigationDrawerItemSelected(int position)
+    {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new CardListerFragment();
 
-        switch (position){
+        String[] itemsForNavigationDrawer = getResources().getStringArray(R.array.nav_drawer_items);
+
+        switch (position)
+        {
             case MenuConstants.SHOW_CARDS:
                 fragment = new CardListerFragment();
                 break;
@@ -84,8 +92,10 @@ public class ApplicationActivity extends Activity
         fragmentTransaction.commit();
     }
 
-    public void onSectionAttached(int number) {
-        switch (number) {
+    public void onSectionAttached(int number)
+    {
+        switch (number)
+        {
             case MenuConstants.ADD_BUS_CARD:
                 mTitle = getString(R.string.title_add_card);
                 break;
@@ -101,7 +111,8 @@ public class ApplicationActivity extends Activity
         }
     }
 
-    public void restoreActionBar() {
+    public void restoreActionBar()
+    {
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
