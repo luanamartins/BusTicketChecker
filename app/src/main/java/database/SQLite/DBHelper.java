@@ -6,16 +6,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper
 {
+    private DatabaseTableCreator creator;
+
     public DBHelper(Context context)
     {
         super(context, DatabaseConstants.DATABASE_NAME, null, DatabaseConstants.DATABASE_VERSION);
+        creator = new DatabaseTableCreator();
     }
 
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String CREATE_TABLE_STUDENT = "";
-        db.execSQL(CREATE_TABLE_STUDENT);
+        creator.createTables(db);
     }
 
     @Override
