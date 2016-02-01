@@ -23,11 +23,11 @@
     <string name="no">No</string>
 
     <string-array name="nav_drawer_items">
-        <item>Show cards</item>
-        <item>Add new card</item>
-        <item>Add new bus tax</item>
-        <item>Remove card</item>
-        <item>Remove bus tax</item>
+        <item>@string/title_show_card</item>
+        <item>@string/title_add_card</item>
+        <item>@string/title_add_tax</item>
+        <item>@string/title_remove_card</item>
+        <item>@string/title_remove_tax</item>
     </string-array>
 
     <array name="nav_drawer_icons">

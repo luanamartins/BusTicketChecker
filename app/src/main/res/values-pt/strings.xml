@@ -20,5 +20,6 @@
     <string name="card">Cartão</string>
     <string name="add_card">Adicionar cartão</string>
     <string name="add_tax">Adicionar tarifa</string>
+    <string name="card_name">Nome do cartão</string>
 
 </resources>
