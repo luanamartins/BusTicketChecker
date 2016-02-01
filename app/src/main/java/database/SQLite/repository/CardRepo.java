@@ -25,8 +25,8 @@ public class CardRepo
     {
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("name", cardDAO.getName());
-        contentValues.put("type", cardDAO.getType());
+        contentValues.put(BusCardDAO.KEY_NAME, cardDAO.getName());
+        contentValues.put(BusCardDAO.KEY_TYPE, cardDAO.getType());
 
         long id = db.insert(DatabaseConstants.DATABASE_TABLE_CARD, null, contentValues);
         db.close();
@@ -39,7 +39,7 @@ public class CardRepo
         SQLiteDatabase db = helper.getWritableDatabase();
         // It's a good practice to use parameter ?, instead of concatenate string
 
-        db.delete(DatabaseConstants.DATABASE_TABLE_CARD, "card_id" + "= ?", new String[]{String.valueOf(id)});
+        db.delete(DatabaseConstants.DATABASE_TABLE_CARD, BusCardDAO.KEY_ID + "= ?", new String[]{String.valueOf(id)});
 
         db.close();
     }
@@ -54,7 +54,7 @@ public class CardRepo
         values.put(BusCardDAO.KEY_TYPE, card.getType());
 
         // It's a good practice to use parameter ?, instead of concatenate string
-        db.update("card", values, "card_id" + "= ?", new String[]{String.valueOf(card.getId())});
+        db.update("card", values, BusCardDAO.KEY_ID + "= ?", new String[]{String.valueOf(card.getId())});
         db.close(); // Closing database connection
     }
 
@@ -93,7 +93,7 @@ public class CardRepo
 
     }
 
-    public BusCardDAO getCardById(int Id)
+    public BusCardDAO getCardById(int id)
     {
         SQLiteDatabase db = helper.getReadableDatabase();
         String selectQuery = "SELECT  " +
@@ -107,7 +107,7 @@ public class CardRepo
         int iCount = 0;
         BusCardDAO cardDAO = new BusCardDAO();
 
-        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(Id)});
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(id)});
 
         if (cursor.moveToFirst())
         {
