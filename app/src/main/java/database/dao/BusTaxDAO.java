@@ -2,13 +2,30 @@ package database.dao;
 
 public class BusTaxDAO
 {
-    private String name;
-    private float value;
+    public static final String TABLE = "BusTax";
 
-    public BusTaxDAO(String name, float value)
+    public static final String KEY_ID = "tax_id";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_COST = "cost";
+
+    private int id;
+    private String name;
+    private float cost;
+
+    public BusTaxDAO(String name, float cost)
     {
         this.name = name;
-        this.value = value;
+        this.cost = cost;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public int getId()
+    {
+        return id;
     }
 
     public void setName(String name)
@@ -21,14 +38,14 @@ public class BusTaxDAO
         return name;
     }
 
-    public void setValue(float value)
+    public void setCost(float cost)
     {
-        this.value = value;
+        this.cost = cost;
     }
 
-    public float getValue()
+    public float getCost()
     {
-        return value;
+        return cost;
     }
 
 }
