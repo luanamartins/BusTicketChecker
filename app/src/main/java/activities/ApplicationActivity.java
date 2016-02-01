@@ -27,7 +27,6 @@ import fragments.NavigationDrawerFragment;
 
 public class ApplicationActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {
-
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -48,21 +47,21 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         setLocale("pt");
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mNavigationDrawerFragment.setContext(this);
 
         mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
-        addBusTravelButton.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                startActivity(new Intent(ApplicationActivity.this, CheckerActivity.class));
-            }
-        });
+//        addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
+//        addBusTravelButton.setOnClickListener(new View.OnClickListener()
+//        {
+//            public void onClick(View v)
+//            {
+//                startActivity(new Intent(ApplicationActivity.this, CheckerActivity.class));
+//            }
+//        });
+
     }
 
     @Override
