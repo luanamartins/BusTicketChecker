@@ -72,8 +72,6 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new CardListerFragment();
 
-        String[] itemsForNavigationDrawer = getResources().getStringArray(R.array.nav_drawer_items);
-
         switch (position)
         {
             case MenuConstants.SHOW_CARDS:
