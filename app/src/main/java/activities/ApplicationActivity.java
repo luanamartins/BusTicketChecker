@@ -45,6 +45,8 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_drawer);
 
+        setLocale("pt");
+
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setContext(this);
 
@@ -122,4 +124,12 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         actionBar.setTitle(mTitle);
     }
 
+    private void setLocale(String country)
+    {
+        Locale locale = new Locale(country);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+    }
 }
