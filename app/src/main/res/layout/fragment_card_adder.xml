@@ -20,7 +20,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Adicionar cartão"
+        android:text="@string/add_card"
         android:id="@+id/addNewCardButton" />
 
 </LinearLayout>
