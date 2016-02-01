@@ -30,11 +30,12 @@ import checker.ticker.bus.basic.R;
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
+
+// http://stackoverflow.com/questions/18297542/how-to-get-menu-item-id-on-action-bar-when-other-menu-item-clicked
+
 public class NavigationDrawerFragment extends Fragment
 {
 
-
-    private Context context;
     /**
      * Remember the position of the selected item.
      */
@@ -88,11 +89,6 @@ public class NavigationDrawerFragment extends Fragment
         selectItem(mCurrentSelectedPosition);
     }
 
-    public void setContext(Context context)
-    {
-        this.context = context;
-    }
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
@@ -126,27 +122,17 @@ public class NavigationDrawerFragment extends Fragment
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
 
-    /**
-     * Users of this fragment must call this method to set up the navigation drawer interactions.
-     *
-     * @param fragmentId   The android:id of this fragment in its activity's layout.
-     * @param drawerLayout The DrawerLayout containing this fragment's UI.
-     */
     public void setUp(int fragmentId, DrawerLayout drawerLayout)
     {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
 
-        // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        // set up the drawer's list view with items and click listener
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
-        // ActionBarDrawerToggle ties together the the proper interactions
-        // between the navigation drawer and the action bar app icon.
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(),                    /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
                 R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
@@ -176,8 +162,6 @@ public class NavigationDrawerFragment extends Fragment
 
                 if (!mUserLearnedDrawer)
                 {
-                    // The user manually opened the drawer; store this flag to prevent auto-showing
-                    // the navigation drawer automatically in the future.
                     mUserLearnedDrawer = true;
                     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
@@ -187,14 +171,11 @@ public class NavigationDrawerFragment extends Fragment
             }
         };
 
-        // If the user hasn't 'learned' about the drawer, open it to introduce them to the drawer,
-        // per the navigation drawer design guidelines.
         if (!mUserLearnedDrawer && !mFromSavedInstanceState)
         {
             mDrawerLayout.openDrawer(mFragmentContainerView);
         }
 
-        // Defer code dependent on restoration of previous instance state.
         mDrawerLayout.post(new Runnable()
         {
             @Override
@@ -231,7 +212,8 @@ public class NavigationDrawerFragment extends Fragment
         try
         {
             mCallbacks = (NavigationDrawerCallbacks) activity;
-        } catch (ClassCastException e)
+        }
+        catch (ClassCastException e)
         {
             throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
         }
@@ -269,6 +251,7 @@ public class NavigationDrawerFragment extends Fragment
             inflater.inflate(R.menu.global, menu);
             showGlobalContextActionBar();
         }
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -283,10 +266,6 @@ public class NavigationDrawerFragment extends Fragment
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Per the navigation drawer design guidelines, updates the action bar to show the global app
-     * 'context', rather than just what's in the current screen.
-     */
     private void showGlobalContextActionBar()
     {
         ActionBar actionBar = getActionBar();
@@ -300,14 +279,8 @@ public class NavigationDrawerFragment extends Fragment
         return getActivity().getActionBar();
     }
 
-    /**
-     * Callbacks interface that all activities using this fragment must implement.
-     */
-    public static interface NavigationDrawerCallbacks
+    public interface NavigationDrawerCallbacks
     {
-        /**
-         * Called when an item in the navigation drawer is selected.
-         */
         void onNavigationDrawerItemSelected(int position);
     }
 }
