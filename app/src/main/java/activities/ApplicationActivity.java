@@ -5,17 +5,20 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.View;
 import android.widget.ImageButton;
+
+import java.util.Locale;
 
 import checker.ticker.bus.basic.R;
 import constants.MenuConstants;
 import fragments.BusTaxAdderFragment;
+import fragments.BusTaxRemoverFragment;
 import fragments.CardAdderFragment;
 import fragments.CardListerFragment;
+import fragments.CardRemoverFragment;
 import fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
@@ -82,10 +85,10 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
                 fragment = new BusTaxAdderFragment();
                 break;
             case MenuConstants.REMOVE_BUS_CARD:
-                fragment = new CardAdderFragment();
+                fragment = new CardRemoverFragment();
                 break;
             case MenuConstants.REMOVE_BUS_TAX:
-                fragment = new CardAdderFragment();
+                fragment = new BusTaxRemoverFragment();
                 break;
         }
         fragmentTransaction.replace(R.id.container, fragment);
