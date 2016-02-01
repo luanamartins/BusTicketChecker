@@ -13,4 +13,11 @@
     <string name="new_bus_tax">Nueva tarifa</string>
     <string name="amount">Valor</string>
     <string name="action_settings">Configuratión</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="title_statistics"></string>
+    <string name="empty_word"></string>
+    <string name="card">Tarjeta</string>
+    <string name="add_card">Añadir tarjeta</string>
+    <string name="add_tax">Añadir tarifa</string>
 </resources>

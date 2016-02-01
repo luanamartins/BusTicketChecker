@@ -17,8 +17,10 @@
     <string name="checkout">Checkout</string>
     <string name="new_bus_tax">New bus tax</string>
     <string name="amount">Amount</string>
-    <string name="title_statistics">Title</string>
+    <string name="title_statistics">Statistics</string>
     <string name="empty_word"></string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <string-array name="nav_drawer_items">
         <item>Show cards</item>
@@ -38,5 +40,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="remove">Remove</string>
+    <string name="card">Card</string>
+    <string name="add_card">Add card</string>
+    <string name="add_tax">Add tax</string>
 
 </resources>
