@@ -8,7 +8,7 @@ public class TravelDAO
 
     public static final String KEY_ID = "travel_id";
     public static final String KEY_DATE = "date";
-    public static final String KEY_TIME = "type";
+    public static final String KEY_TYPE = "type";
     public static final String KEY_CARD_NAME = "card_name";
     public static final String KEY_CARD_TYPE = "card_type";
     public static final String KEY_TAX_NAME = "tax_name";
