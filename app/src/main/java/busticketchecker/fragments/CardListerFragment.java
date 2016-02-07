@@ -18,6 +18,7 @@ import java.util.HashMap;
 import busticketchecker.activities.CheckerActivity;
 import busticketchecker.database.SQLite.repository.CardRepo;
 import busticketchecker.database.dao.BusCardDAO;
+import busticketchecker.fragments.adapter.CustomList;
 import checker.ticker.bus.basic.R;
 
 public class CardListerFragment extends Fragment
@@ -49,19 +50,21 @@ public class CardListerFragment extends Fragment
 
         final Context context = getActivity().getBaseContext();
         CardRepo repo = new CardRepo(context);
-        ArrayList<HashMap<String, String>> listOfCards = repo.getCardList();
+        ArrayList<HashMap<String, String>> listOfCardsFromDatabase = repo.getCardList();
 
         this.listOfCards = new ArrayList<>();
 
-        for(int i = 0; i < listOfCards.size(); i++){
-            this.listOfCards.add(listOfCards.get(i).get(BusCardDAO.KEY_NAME));
+        for(int i = 0; i < listOfCardsFromDatabase.size(); i++){
+            this.listOfCards.add(listOfCardsFromDatabase.get(i).get(BusCardDAO.KEY_NAME));
         }
 
         final ListView list = (ListView) rootView.findViewById(R.id.listView2);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1,
-                android.R.id.text1, this.listOfCards);
-        list.setAdapter(adapter);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1,
+//                android.R.id.text1, this.listOfCards);
+
+        CustomList customAdapter = new CustomList(getActivity(), listOfCards);
+        list.setAdapter(customAdapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
