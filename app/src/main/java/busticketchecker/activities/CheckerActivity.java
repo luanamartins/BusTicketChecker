@@ -11,7 +11,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import busticketchecker.database.SQLite.repository.TaxRepo;
+import busticketchecker.database.dao.BusTaxDAO;
 import checker.ticker.bus.basic.R;
 import busticketchecker.fragments.TimePickerFragment;
 
@@ -32,14 +35,7 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
         String cardName = intent.getStringExtra("cardName");
         this.setTitle(cardName);
 
-        spinnerBusTaxes = (Spinner) findViewById(R.id.spinner);
-        ArrayList<String> busTaxes = new ArrayList<>();
-        busTaxes.add("Tarifa A");
-        busTaxes.add("Tarifa B");
-        busTaxes.add("Tarifa C");
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, busTaxes);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerBusTaxes.setAdapter(adapter);
+        setSpinner();
 
         newTimeButton = (Button) findViewById(R.id.newTimeButton);
         newTimeButton.setOnClickListener(new View.OnClickListener()
@@ -61,6 +57,28 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
                 finish();
             }
         });
+    }
+
+    private void setSpinner()
+    {
+        spinnerBusTaxes = (Spinner) findViewById(R.id.spinner);
+
+        TaxRepo taxRepo = new TaxRepo(getBaseContext());
+        ArrayList<HashMap<String, String>> listOfTaxes = taxRepo.getTaxList();
+        ArrayList<String> busTaxes = new ArrayList<>();
+
+        for (int i = 0; i < listOfTaxes.size(); i++)
+        {
+            busTaxes.add(listOfTaxes.get(i).get(BusTaxDAO.KEY_NAME));
+        }
+//
+//        busTaxes.add("Tarifa A");
+//        busTaxes.add("Tarifa B");
+//        busTaxes.add("Tarifa C");
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, busTaxes);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerBusTaxes.setAdapter(adapter);
     }
 
 
