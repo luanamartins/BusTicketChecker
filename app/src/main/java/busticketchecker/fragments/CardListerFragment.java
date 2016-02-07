@@ -44,27 +44,33 @@ public class CardListerFragment extends Fragment
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         View rootView = inflater.inflate(R.layout.fragment_main_drawer, container, false);
 
-        final ListView list = (ListView) rootView.findViewById(R.id.listView2);
-        final String[] values = new String[]{
-                "Cartão 1",
-                "Cartão 2",
-        };
-
         final Context context = getActivity().getBaseContext();
+        CardRepo repo = new CardRepo(context);
+        ArrayList<HashMap<String, String>> listOfCards = repo.getCardList();
+
+        this.listOfCards = new ArrayList<>();
+
+        for(int i = 0; i < listOfCards.size(); i++){
+            this.listOfCards.add(listOfCards.get(i).get(BusCardDAO.KEY_NAME));
+        }
+
+        final ListView list = (ListView) rootView.findViewById(R.id.listView2);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1,
-                android.R.id.text1, values);
+                android.R.id.text1, this.listOfCards);
         list.setAdapter(adapter);
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 Intent intent = new Intent(context, CheckerActivity.class);
-                intent.putExtra("cardName", values[position]);
+                intent.putExtra("cardName", CardListerFragment.this.listOfCards.get(position));
                 startActivity(intent);
             }
         });
