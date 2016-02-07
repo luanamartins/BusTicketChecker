@@ -2,7 +2,7 @@ package busticketchecker.database.dao;
 
 public class BusTaxDAO
 {
-    public static final String TABLE = "BusTax";
+    public static final String TABLE = "Tax";
 
     public static final String KEY_ID = "tax_id";
     public static final String KEY_NAME = "name";
