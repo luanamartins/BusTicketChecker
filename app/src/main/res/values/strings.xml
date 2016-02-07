@@ -46,5 +46,6 @@
     <string name="add_tax">Add tax</string>
     <string name="card_name">Card name</string>
     <string name="card_type">Card type</string>
+    <string name="no_results">No Results</string>
 
 </resources>
