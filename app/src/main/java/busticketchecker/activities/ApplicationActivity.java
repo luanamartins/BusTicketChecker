@@ -8,11 +8,9 @@ import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ImageButton;
 
 import java.util.Locale;
 
-import checker.ticker.bus.basic.R;
 import busticketchecker.constants.MenuConstants;
 import busticketchecker.fragments.BusTaxAdderFragment;
 import busticketchecker.fragments.BusTaxRemoverFragment;
@@ -20,6 +18,7 @@ import busticketchecker.fragments.CardAdderFragment;
 import busticketchecker.fragments.CardListerFragment;
 import busticketchecker.fragments.CardRemoverFragment;
 import busticketchecker.fragments.NavigationDrawerFragment;
+import checker.ticker.bus.basic.R;
 
 public class ApplicationActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {

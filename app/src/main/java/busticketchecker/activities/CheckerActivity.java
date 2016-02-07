@@ -1,8 +1,8 @@
 package busticketchecker.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,8 +15,8 @@ import java.util.HashMap;
 
 import busticketchecker.database.SQLite.repository.TaxRepo;
 import busticketchecker.database.dao.BusTaxDAO;
-import checker.ticker.bus.basic.R;
 import busticketchecker.fragments.TimePickerFragment;
+import checker.ticker.bus.basic.R;
 
 public class CheckerActivity extends Activity implements AdapterView.OnItemSelectedListener
 {
