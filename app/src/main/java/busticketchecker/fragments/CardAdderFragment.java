@@ -43,8 +43,11 @@ public class CardAdderFragment extends Fragment implements View.OnClickListener
         EditText newCardTypeEditText = (EditText) view.findViewById(R.id.newCardTypeEditText);
         String newCardType = newCardTypeEditText.getText().toString();
 
+        EditText newCardValueEditText = (EditText) view.findViewById(R.id.newCardInitialValueEditText);
+        float newCardValue = Float.valueOf(newCardValueEditText.getText().toString());
+
         CardRepo repo = new CardRepo(context);
-        BusCardDAO card = new BusCardDAO(newCardName, newCardType);
+        BusCardDAO card = new BusCardDAO(newCardName, newCardType, newCardValue);
         repo.insert(card);
 
         Toast.makeText(context, "OK", Toast.LENGTH_SHORT);
