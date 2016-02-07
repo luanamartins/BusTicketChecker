@@ -43,6 +43,16 @@ public class TaxRepo
         db.close();
     }
 
+    public void delete(String name)
+    {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        // It's a good practice to use parameter ?, instead of concatenate string
+
+        db.delete(BusTaxDAO.TABLE, BusTaxDAO.KEY_NAME + "= ?", new String[]{String.valueOf(name)});
+
+        db.close();
+    }
+
     public void update(BusTaxDAO taxDAO)
     {
 
