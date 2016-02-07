@@ -26,8 +26,10 @@ public class CardAdderFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         view = inflater.inflate(R.layout.fragment_card_adder, container, false);
-        context = inflater.getContext();
-        ((Button) view.findViewById(R.id.addNewCardButton)).setOnClickListener(this);
+        context = view.getContext();
+
+        Button button = (Button) view.findViewById(R.id.addNewCardButton);
+        button.setOnClickListener(this);
 
         return view;
     }
