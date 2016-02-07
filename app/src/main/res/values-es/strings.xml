@@ -15,10 +15,13 @@
     <string name="action_settings">Configuratión</string>
     <string name="no">No</string>
     <string name="yes">Sí</string>
-    <string name="title_statistics"></string>
+    <string name="title_statistics">Estadísticas</string>
     <string name="empty_word"></string>
     <string name="card">Tarjeta</string>
     <string name="add_card">Añadir tarjeta</string>
     <string name="add_tax">Añadir tarifa</string>
     <string name="card_name">Nombre de la tarjeta</string>
+    <string name="card_type">Tipo de tarjeta</string>
+    <string name="title_activity_checker">CheckerActivity</string>
+    <string name="remove">Eliminar</string>
 </resources>
