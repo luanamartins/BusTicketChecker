@@ -46,7 +46,7 @@ public class BusTaxRemoverFragment extends Fragment
         return rootView;
     }
 
-    private void showDialog(String title, String message)
+    private void showDialog(String title, String message, String taxName)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title);
