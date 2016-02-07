@@ -29,6 +29,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/newCardTypeEditText" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/initial_value"
+        android:id="@+id/textView6"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/newCardInitialValueEditText"
+        android:layout_gravity="center_horizontal"/>
+
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

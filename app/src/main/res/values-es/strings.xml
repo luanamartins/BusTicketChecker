@@ -25,4 +25,5 @@
     <string name="title_activity_checker">CheckerActivity</string>
     <string name="remove">Eliminar</string>
     <string name="no_results">No resultados</string>
+    <string name="initial_value">Valor inicial</string>
 </resources>

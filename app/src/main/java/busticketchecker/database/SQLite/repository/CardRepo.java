@@ -46,7 +46,7 @@ public class CardRepo
     public void delete(String name)
     {
         SQLiteDatabase db = helper.getWritableDatabase();
-        db.delete(BusCardDAO.TABLE,BusCardDAO.KEY_NAME + "=?", new String[]{name});
+        db.delete(BusCardDAO.TABLE, BusCardDAO.KEY_NAME + "=?", new String[]{name});
         db.close();
     }
 
@@ -58,6 +58,7 @@ public class CardRepo
 
         values.put(BusCardDAO.KEY_NAME, card.getName());
         values.put(BusCardDAO.KEY_TYPE, card.getType());
+        values.put(BusCardDAO.KEY_AMOUNT, card.getAmount());
 
         // It's a good practice to use parameter ?, instead of concatenate string
         db.update("card", values, BusCardDAO.KEY_ID + "= ?", new String[]{String.valueOf(card.getId())});
@@ -70,7 +71,8 @@ public class CardRepo
         String selectQuery = "SELECT  " +
                 BusCardDAO.KEY_ID + "," +
                 BusCardDAO.KEY_NAME + "," +
-                BusCardDAO.KEY_TYPE +
+                BusCardDAO.KEY_TYPE + "," +
+                BusCardDAO.KEY_AMOUNT +
                 " FROM " + BusCardDAO.TABLE;
 
         ArrayList<HashMap<String, String>> studentList = new ArrayList<HashMap<String, String>>();
@@ -85,6 +87,7 @@ public class CardRepo
                 cards.put(BusCardDAO.KEY_ID, cursor.getString(cursor.getColumnIndex(BusCardDAO.KEY_ID)));
                 cards.put(BusCardDAO.KEY_NAME, cursor.getString(cursor.getColumnIndex(BusCardDAO.KEY_NAME)));
                 cards.put(BusCardDAO.KEY_TYPE, cursor.getString(cursor.getColumnIndex(BusCardDAO.KEY_TYPE)));
+                cards.put(BusCardDAO.KEY_AMOUNT, cursor.getString(cursor.getColumnIndex(BusCardDAO.KEY_AMOUNT)));
                 studentList.add(cards);
 
             } while (cursor.moveToNext());
@@ -99,11 +102,12 @@ public class CardRepo
     public BusCardDAO getCardById(int id)
     {
         SQLiteDatabase db = helper.getReadableDatabase();
-        String query = "SELECT id, name, type FROM Card WHERE id=?";
+//        String query = "SELECT id, name, type FROM Card WHERE id=?";
         String selectQuery = "SELECT  " +
-                BusCardDAO.KEY_ID + "," +
-                BusCardDAO.KEY_NAME + "," +
-                BusCardDAO.KEY_TYPE +
+                BusCardDAO.KEY_ID + ", " +
+                BusCardDAO.KEY_NAME + ", " +
+                BusCardDAO.KEY_TYPE + ", " +
+                BusCardDAO.KEY_AMOUNT +
                 " FROM " + BusCardDAO.TABLE + " WHERE " +
                 BusCardDAO.KEY_ID + "=?";
         // It's a good practice to use parameter ?, instead of concatenate string
@@ -120,7 +124,7 @@ public class CardRepo
                 cardDAO.setId(cursor.getInt(cursor.getColumnIndex(BusCardDAO.KEY_ID)));
                 cardDAO.setName(cursor.getString(cursor.getColumnIndex(BusCardDAO.KEY_NAME)));
                 cardDAO.setType(cursor.getString(cursor.getColumnIndex(BusCardDAO.KEY_TYPE)));
-
+                cardDAO.setAmount(cursor.getFloat(cursor.getColumnIndex(BusCardDAO.KEY_AMOUNT)));
             } while (cursor.moveToNext());
         }
 

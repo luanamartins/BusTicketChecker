@@ -24,5 +24,6 @@
     <string name="card_type">Tipo do cartão</string>
     <string name="title_activity_checker">CheckerActivity</string>
     <string name="no_results">Sem resultados</string>
+    <string name="initial_value">Valor inicial</string>
 
 </resources>
