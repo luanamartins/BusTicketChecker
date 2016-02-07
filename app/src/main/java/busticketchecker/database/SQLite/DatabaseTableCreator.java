@@ -1,4 +1,4 @@
-package database.SQLite;
+package busticketchecker.database.SQLite;
 
 import android.database.sqlite.SQLiteDatabase;
 

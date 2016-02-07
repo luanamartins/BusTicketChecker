@@ -1,4 +1,4 @@
-package database.dao;
+package busticketchecker.database.dao;
 
 public class BusCardDAO
 {

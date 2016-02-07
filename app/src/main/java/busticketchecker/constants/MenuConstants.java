@@ -1,4 +1,4 @@
-package constants;
+package busticketchecker.constants;
 
 public class MenuConstants
 {

@@ -1,4 +1,4 @@
-package database.SQLite.repository;
+package busticketchecker.database.SQLite.repository;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import database.SQLite.DBHelper;
-import database.SQLite.DatabaseConstants;
-import database.dao.BusCardDAO;
+import busticketchecker.database.SQLite.DBHelper;
+import busticketchecker.database.dao.BusCardDAO;
 
 public class CardRepo
 {
@@ -28,7 +27,7 @@ public class CardRepo
         contentValues.put(BusCardDAO.KEY_NAME, cardDAO.getName());
         contentValues.put(BusCardDAO.KEY_TYPE, cardDAO.getType());
 
-        long id = db.insert(DatabaseConstants.DATABASE_TABLE_CARD, null, contentValues);
+        long id = db.insert(BusCardDAO.TABLE, null, contentValues);
         db.close();
 
         return (int) id;
@@ -39,7 +38,7 @@ public class CardRepo
         SQLiteDatabase db = helper.getWritableDatabase();
         // It's a good practice to use parameter ?, instead of concatenate string
 
-        db.delete(DatabaseConstants.DATABASE_TABLE_CARD, BusCardDAO.KEY_ID + "= ?", new String[]{String.valueOf(id)});
+        db.delete(BusCardDAO.TABLE, BusCardDAO.KEY_ID + "= ?", new String[]{String.valueOf(id)});
 
         db.close();
     }
@@ -55,10 +54,10 @@ public class CardRepo
 
         // It's a good practice to use parameter ?, instead of concatenate string
         db.update("card", values, BusCardDAO.KEY_ID + "= ?", new String[]{String.valueOf(card.getId())});
-        db.close(); // Closing database connection
+        db.close(); // Closing busticketchecker.database connection
     }
 
-    public ArrayList<HashMap<String, String>> getStudentList()
+    public ArrayList<HashMap<String, String>> getCardList()
     {
         //Open connection to read only
         SQLiteDatabase db = helper.getReadableDatabase();

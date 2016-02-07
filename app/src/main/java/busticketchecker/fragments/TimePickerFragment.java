@@ -1,4 +1,4 @@
-package fragments;
+package busticketchecker.fragments;
 
 import android.app.Dialog;
 import android.app.DialogFragment;

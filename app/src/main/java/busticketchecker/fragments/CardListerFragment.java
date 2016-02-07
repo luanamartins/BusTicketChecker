@@ -1,4 +1,4 @@
-package fragments;
+package busticketchecker.fragments;
 
 
 import android.app.Activity;
@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import checker.ticker.bus.basic.R;
-import activities.CheckerActivity;
+import busticketchecker.activities.CheckerActivity;
 
 /**
  * A placeholder fragment containing a simple view.
