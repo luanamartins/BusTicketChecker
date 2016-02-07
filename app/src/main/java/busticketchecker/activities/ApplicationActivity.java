@@ -21,21 +21,9 @@ import busticketchecker.fragments.CardListerFragment;
 import busticketchecker.fragments.CardRemoverFragment;
 import busticketchecker.fragments.NavigationDrawerFragment;
 
-// https://guides.codepath.com/android/Fragment-Navigation-Drawer
-// https://github.com/codepath/android_guides/wiki/Fragment-Navigation-Drawer
-// http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/
-
 public class ApplicationActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private ImageButton addBusTravelButton;
-
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
 
     @Override
@@ -45,29 +33,15 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         setContentView(R.layout.activity_main_drawer);
 
         setLocale("pt");
-
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
-
         mTitle = getTitle();
 
-        // Set up the drawer.
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
-
-//        addBusTravelButton = (ImageButton) findViewById(R.id.addBusTravelButton);
-//        addBusTravelButton.setOnClickListener(new View.OnClickListener()
-//        {
-//            public void onClick(View v)
-//            {
-//                startActivity(new Intent(ApplicationActivity.this, CheckerActivity.class));
-//            }
-//        });
-
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position)
     {
-        // update the main content by replacing busticketchecker.fragments
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new CardListerFragment();

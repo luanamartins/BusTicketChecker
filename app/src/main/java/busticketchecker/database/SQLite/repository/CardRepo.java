@@ -59,7 +59,6 @@ public class CardRepo
 
     public ArrayList<HashMap<String, String>> getCardList()
     {
-        //Open connection to read only
         SQLiteDatabase db = helper.getReadableDatabase();
         String selectQuery = "SELECT  " +
                 BusCardDAO.KEY_ID + "," +
@@ -67,11 +66,9 @@ public class CardRepo
                 BusCardDAO.KEY_TYPE +
                 " FROM " + BusCardDAO.TABLE;
 
-        //Student student = new Student();
         ArrayList<HashMap<String, String>> studentList = new ArrayList<HashMap<String, String>>();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
-        // looping through all rows and adding to list
 
         if (cursor.moveToFirst())
         {
