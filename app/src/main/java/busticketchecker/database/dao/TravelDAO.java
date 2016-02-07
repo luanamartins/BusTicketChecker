@@ -1,4 +1,4 @@
-package database.dao;
+package busticketchecker.database.dao;
 
 import java.util.Date;
 

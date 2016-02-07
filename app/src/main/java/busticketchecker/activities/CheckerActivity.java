@@ -1,4 +1,4 @@
-package activities;
+package busticketchecker.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +10,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.ArrayList;
 
 import checker.ticker.bus.basic.R;
-import fragments.TimePickerFragment;
+import busticketchecker.fragments.TimePickerFragment;
 
 public class CheckerActivity extends Activity implements AdapterView.OnItemSelectedListener
 {

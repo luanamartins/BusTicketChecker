@@ -1,4 +1,4 @@
-package activities;
+package busticketchecker.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -13,13 +13,13 @@ import android.widget.ImageButton;
 import java.util.Locale;
 
 import checker.ticker.bus.basic.R;
-import constants.MenuConstants;
-import fragments.BusTaxAdderFragment;
-import fragments.BusTaxRemoverFragment;
-import fragments.CardAdderFragment;
-import fragments.CardListerFragment;
-import fragments.CardRemoverFragment;
-import fragments.NavigationDrawerFragment;
+import busticketchecker.constants.MenuConstants;
+import busticketchecker.fragments.BusTaxAdderFragment;
+import busticketchecker.fragments.BusTaxRemoverFragment;
+import busticketchecker.fragments.CardAdderFragment;
+import busticketchecker.fragments.CardListerFragment;
+import busticketchecker.fragments.CardRemoverFragment;
+import busticketchecker.fragments.NavigationDrawerFragment;
 
 // https://guides.codepath.com/android/Fragment-Navigation-Drawer
 // https://github.com/codepath/android_guides/wiki/Fragment-Navigation-Drawer
@@ -67,7 +67,7 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
     @Override
     public void onNavigationDrawerItemSelected(int position)
     {
-        // update the main content by replacing fragments
+        // update the main content by replacing busticketchecker.fragments
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragment = new CardListerFragment();

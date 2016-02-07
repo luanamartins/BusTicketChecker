@@ -1,4 +1,4 @@
-package database.dao;
+package busticketchecker.database.dao;
 
 public class BusTaxDAO
 {
@@ -11,6 +11,11 @@ public class BusTaxDAO
     private int id;
     private String name;
     private float cost;
+
+    public BusTaxDAO()
+    {
+    }
+
 
     public BusTaxDAO(String name, float cost)
     {
