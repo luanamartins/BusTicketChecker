@@ -43,6 +43,13 @@ public class CardRepo
         db.close();
     }
 
+    public void delete(String name)
+    {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete(BusCardDAO.TABLE,BusCardDAO.KEY_NAME + "=?", new String[]{name});
+        db.close();
+    }
+
     public void update(BusCardDAO card)
     {
 
@@ -92,6 +99,7 @@ public class CardRepo
     public BusCardDAO getCardById(int id)
     {
         SQLiteDatabase db = helper.getReadableDatabase();
+        String query = "SELECT id, name, type FROM Card WHERE id=?";
         String selectQuery = "SELECT  " +
                 BusCardDAO.KEY_ID + "," +
                 BusCardDAO.KEY_NAME + "," +
