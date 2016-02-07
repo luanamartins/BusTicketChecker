@@ -1,6 +1,5 @@
 package busticketchecker.fragments;
 
-
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -20,8 +19,6 @@ import busticketchecker.database.dao.BusCardDAO;
 public class CardAdderFragment extends Fragment implements View.OnClickListener
 {
 
-    private String cardName;
-    private String cardType;
     private Context context;
     private View view;
 

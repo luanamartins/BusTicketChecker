@@ -16,15 +16,8 @@ import android.widget.ListView;
 import checker.ticker.bus.basic.R;
 import busticketchecker.activities.CheckerActivity;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class CardListerFragment extends Fragment
 {
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public CardListerFragment() {
