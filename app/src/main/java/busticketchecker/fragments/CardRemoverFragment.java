@@ -37,16 +37,17 @@ public class CardRemoverFragment extends Fragment
                 String remove = getString(R.string.remove);
                 String card = getString(R.string.card).toLowerCase();
 
-                String title = remove + " " + card;
-                String message = remove + " " + values[position] + "?";
+                String cardName = CardRemoverFragment.this.listOfCards.get(position);
 
-                showDialog(title, message);
+                String title = remove + " " + card;
+                String message = remove + " " + cardName + "?";
+
+                showDialog(title, message, cardName);
             }
         });
-        return rootView;
     }
 
-    private void showDialog(String title, String message)
+    private void showDialog(String title, String message, String cardName)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(title);

@@ -2,10 +2,10 @@ package busticketchecker.fragments;
 
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,21 +13,29 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import checker.ticker.bus.basic.R;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import busticketchecker.activities.CheckerActivity;
+import busticketchecker.database.SQLite.repository.CardRepo;
+import busticketchecker.database.dao.BusCardDAO;
+import checker.ticker.bus.basic.R;
 
 public class CardListerFragment extends Fragment
 {
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private  ArrayList<String> listOfCards;
 
-    public CardListerFragment() {
+    public CardListerFragment()
+    {
     }
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static CardListerFragment newInstance(int sectionNumber) {
+    public static CardListerFragment newInstance(int sectionNumber)
+    {
         CardListerFragment fragment = new CardListerFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -64,7 +72,8 @@ public class CardListerFragment extends Fragment
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Activity activity)
+    {
         super.onAttach(activity);
 //        ((ApplicationActivity) activity).onSectionAttached(
 //                getArguments().getInt(ARG_SECTION_NUMBER));
