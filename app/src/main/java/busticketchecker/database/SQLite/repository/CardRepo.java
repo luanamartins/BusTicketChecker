@@ -26,6 +26,7 @@ public class CardRepo
         ContentValues contentValues = new ContentValues();
         contentValues.put(BusCardDAO.KEY_NAME, cardDAO.getName());
         contentValues.put(BusCardDAO.KEY_TYPE, cardDAO.getType());
+        contentValues.put(BusCardDAO.KEY_AMOUNT, cardDAO.getAmount());
 
         long id = db.insert(BusCardDAO.TABLE, null, contentValues);
         db.close();
