@@ -23,16 +23,13 @@ import checker.ticker.bus.basic.R;
 public class ApplicationActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {
     private NavigationDrawerFragment mNavigationDrawerFragment;
-    private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        setLocale("pt");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_drawer);
-
-        setLocale("pt");
-        mTitle = getTitle();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
