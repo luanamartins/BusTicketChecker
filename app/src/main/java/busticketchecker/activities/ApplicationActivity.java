@@ -67,33 +67,6 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         fragmentTransaction.commit();
     }
 
-    public void onSectionAttached(int number)
-    {
-        switch (number)
-        {
-            case MenuConstants.ADD_BUS_CARD:
-                mTitle = getString(R.string.title_add_card);
-                break;
-            case MenuConstants.ADD_BUS_TAX:
-                mTitle = getString(R.string.title_add_tax);
-                break;
-            case MenuConstants.REMOVE_BUS_CARD:
-                mTitle = getString(R.string.title_remove_card);
-                break;
-            case MenuConstants.REMOVE_BUS_TAX:
-                mTitle = getString(R.string.title_remove_tax);
-                break;
-        }
-    }
-
-    public void restoreActionBar()
-    {
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
-    }
-
     private void setLocale(String country)
     {
         Locale locale = new Locale(country);
