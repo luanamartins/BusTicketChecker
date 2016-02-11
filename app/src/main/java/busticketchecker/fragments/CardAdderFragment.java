@@ -1,9 +1,11 @@
 package busticketchecker.fragments;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,28 +39,54 @@ public class CardAdderFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v)
     {
-        EditText newCardNameEditText = (EditText) view.findViewById(R.id.newCardNameEditText);
-        String newCardName = newCardNameEditText.getText().toString();
+        try
+        {
+            EditText newCardNameEditText = (EditText) view.findViewById(R.id.newCardNameEditText);
+            String newCardName = newCardNameEditText.getText().toString();
 
-        EditText newCardTypeEditText = (EditText) view.findViewById(R.id.newCardTypeEditText);
-        String newCardType = newCardTypeEditText.getText().toString();
+            EditText newCardTypeEditText = (EditText) view.findViewById(R.id.newCardTypeEditText);
+            String newCardType = newCardTypeEditText.getText().toString();
 
-        EditText newCardValueEditText = (EditText) view.findViewById(R.id.newCardInitialValueEditText);
-        float newCardValue = Float.valueOf(newCardValueEditText.getText().toString());
+            EditText newCardValueEditText = (EditText) view.findViewById(R.id.newCardInitialValueEditText);
+            float newCardValue = Float.valueOf(newCardValueEditText.getText().toString());
 
-        CardRepo repo = new CardRepo(context);
-        BusCardDAO card = new BusCardDAO(newCardName, newCardType, newCardValue);
-        repo.insert(card);
+            CardRepo repo = new CardRepo(context);
+            BusCardDAO card = new BusCardDAO(newCardName, newCardType, newCardValue);
+            repo.insert(card);
 
-        Toast.makeText(context, "OK", Toast.LENGTH_SHORT);
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            Fragment fragment = new CardListerFragment();
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment = new CardListerFragment();
-
-        fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.commit();
-
+            fragmentTransaction.replace(R.id.container, fragment);
+            fragmentTransaction.commit();
+        }
+        catch (Exception e)
+        {
+            String error = getString(R.string.error);
+            String amount = getString(R.string.field_amount_not_properly_filled);
+            showDialog(error, amount);
+        }
     }
+
+
+    private void showDialog(String title, String message)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(title);
+        builder.setMessage(message);
+
+        String yes = getString(R.string.yes);
+
+        builder.setPositiveButton(yes, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int id)
+            {
+
+            }
+        });
+        builder.show();
+    }
+
 
 }
