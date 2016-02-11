@@ -71,10 +71,6 @@ public class CheckerActivity extends Activity implements AdapterView.OnItemSelec
         {
             busTaxes.add(listOfTaxes.get(i).get(BusTaxDAO.KEY_NAME));
         }
-//
-//        busTaxes.add("Tarifa A");
-//        busTaxes.add("Tarifa B");
-//        busTaxes.add("Tarifa C");
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, busTaxes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
