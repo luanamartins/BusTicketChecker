@@ -9,15 +9,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import busticketchecker.database.dao.BusCardDAO;
 import checker.ticker.bus.basic.R;
 
-public class CustomList extends ArrayAdapter<String>
+public class CustomList extends ArrayAdapter<BusCardDAO>
 {
     private final Activity context;
-    private final ArrayList<String> web;
+    private final ArrayList<BusCardDAO> web;
 //    private final Integer[] imageId;
 
-    public CustomList(Activity context, ArrayList<String> web)
+    public CustomList(Activity context, ArrayList<BusCardDAO> web)
     {
         super(context, R.layout.list_single, web);
         this.context = context;
@@ -32,10 +33,11 @@ public class CustomList extends ArrayAdapter<String>
         View rowView = inflater.inflate(R.layout.list_single, null, true);
         TextView txtTitle = (TextView) rowView.findViewById(R.id.first_text);
 
-        txtTitle.setText(web.get(position));
+        BusCardDAO card = web.get(position);
+        txtTitle.setText(card.getName());
 
         txtTitle = (TextView) rowView.findViewById(R.id.second_text);
-        txtTitle.setText(web.get(position));
+        txtTitle.setText(card.getType());
 
         return rowView;
     }

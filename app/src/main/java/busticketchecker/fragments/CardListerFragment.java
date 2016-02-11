@@ -24,7 +24,7 @@ import checker.ticker.bus.basic.R;
 public class CardListerFragment extends Fragment
 {
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private  ArrayList<String> listOfCards;
+    private  ArrayList<BusCardDAO> listOfCards;
 
     public CardListerFragment()
     {
@@ -53,15 +53,18 @@ public class CardListerFragment extends Fragment
         ArrayList<HashMap<String, String>> listOfCardsFromDatabase = repo.getCardList();
 
         this.listOfCards = new ArrayList<>();
-
+        HashMap<String, String> hashMap;
+        BusCardDAO currentCard;
         for(int i = 0; i < listOfCardsFromDatabase.size(); i++){
-            this.listOfCards.add(listOfCardsFromDatabase.get(i).get(BusCardDAO.KEY_NAME));
+            hashMap = listOfCardsFromDatabase.get(i);
+            currentCard = new BusCardDAO();
+            currentCard.setName(hashMap.get(BusCardDAO.KEY_NAME));
+            currentCard.setType(hashMap.get(BusCardDAO.KEY_TYPE));
+            currentCard.setAmount(Float.valueOf(hashMap.get(BusCardDAO.KEY_AMOUNT)));
+            this.listOfCards.add(currentCard);
         }
 
         final ListView list = (ListView) rootView.findViewById(R.id.listView2);
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_list_item_1,
-//                android.R.id.text1, this.listOfCards);
 
         CustomList customAdapter = new CustomList(getActivity(), listOfCards);
         list.setAdapter(customAdapter);
@@ -72,7 +75,7 @@ public class CardListerFragment extends Fragment
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Intent intent = new Intent(context, CheckerActivity.class);
-                intent.putExtra("cardName", CardListerFragment.this.listOfCards.get(position));
+                intent.putExtra("cardName", CardListerFragment.this.listOfCards.get(position).getName());
                 startActivity(intent);
             }
         });
