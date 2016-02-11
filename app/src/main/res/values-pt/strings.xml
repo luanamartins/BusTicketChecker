@@ -25,5 +25,7 @@
     <string name="title_activity_checker">CheckerActivity</string>
     <string name="no_results">Sem resultados</string>
     <string name="initial_value">Valor inicial</string>
+    <string name="error">Erro</string>
+    <string name="field_amount_not_properly_filled">Quantia inserida inválida</string>
 
 </resources>

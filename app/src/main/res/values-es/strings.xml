@@ -26,4 +26,6 @@
     <string name="remove">Eliminar</string>
     <string name="no_results">No resultados</string>
     <string name="initial_value">Valor inicial</string>
+    <string name="error">Erro</string>
+    <string name="field_amount_not_properly_filled"></string>
 </resources>

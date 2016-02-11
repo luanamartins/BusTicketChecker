@@ -48,5 +48,7 @@
     <string name="card_type">Card type</string>
     <string name="no_results">No Results</string>
     <string name="initial_value">Initial value</string>
+    <string name="error">Error</string>
+    <string name="field_amount_not_properly_filled">Amount is not valid</string>
 
 </resources>
