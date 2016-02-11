@@ -73,6 +73,6 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        getApplication().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
     }
 }
