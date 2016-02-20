@@ -5,4 +5,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="ThemeSelector" parent="android:Theme.Light">
+        <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
+    </style>
+
+    <style name="WindowTitleBackground">
+        <!--<item name="android:background">@color/titlebackgroundcolor</item>-->
+        <!--<item name="android:textColor">@color/titletextcolor</item>-->
+        <item name="android:background">@color/vine</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>
