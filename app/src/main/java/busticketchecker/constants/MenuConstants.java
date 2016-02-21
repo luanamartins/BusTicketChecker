@@ -7,4 +7,5 @@ public class MenuConstants
     public static final int ADD_BUS_TAX = 2;
     public static final int REMOVE_BUS_CARD = 3;
     public static final int REMOVE_BUS_TAX = 4;
+    public static final int STATISTICS = 5;
 }

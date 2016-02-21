@@ -18,6 +18,7 @@ import busticketchecker.fragments.CardAdderFragment;
 import busticketchecker.fragments.CardListerFragment;
 import busticketchecker.fragments.CardRemoverFragment;
 import busticketchecker.fragments.NavigationDrawerFragment;
+import busticketchecker.fragments.StatisticsFragment;
 import checker.ticker.bus.basic.R;
 
 public class ApplicationActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks
@@ -58,6 +59,9 @@ public class ApplicationActivity extends Activity implements NavigationDrawerFra
                 break;
             case MenuConstants.REMOVE_BUS_TAX:
                 fragment = new BusTaxRemoverFragment();
+                break;
+            case MenuConstants.STATISTICS:
+                fragment = new StatisticsFragment();
                 break;
         }
         fragmentTransaction.replace(R.id.container, fragment);
